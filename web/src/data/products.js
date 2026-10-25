@@ -1,0 +1,100 @@
+// Catálogo ficticio. Cada prenda es un "personaje" con clase y stats,
+// como en la pantalla de selección de un juego de pelea.
+// stats: DEF = abrigo/resistencia, WGT = peso de la tela, STL = estilo.
+
+export const PRODUCTS = [
+  {
+    id: 'umbra',
+    code: 'P01',
+    name: 'Hoodie Umbra',
+    type: 'hoodie',
+    cls: 'Tank',
+    price: 89,
+    stats: { def: 92, wgt: 74, stl: 70 },
+    desc: 'Algodón 480 gsm, capucha profunda y puños rasgados a mano.',
+  },
+  {
+    id: 'abyss',
+    code: 'P02',
+    name: 'Cargo Abyss',
+    type: 'cargo',
+    cls: 'Scout',
+    price: 110,
+    stats: { def: 64, wgt: 58, stl: 86 },
+    desc: 'Seis bolsillos, corte baggy y ripstop negro lavado.',
+  },
+  {
+    id: 'static',
+    code: 'P03',
+    name: 'Bomber Static',
+    type: 'jacket',
+    cls: 'Brawler',
+    price: 220,
+    stats: { def: 88, wgt: 90, stl: 82 },
+    desc: 'Cuero sintético oversize con forro naranja de emergencia.',
+  },
+  {
+    id: 'relic',
+    code: 'P04',
+    name: 'Tank Relic',
+    type: 'tank',
+    cls: 'Speed',
+    price: 39,
+    stats: { def: 22, wgt: 18, stl: 78 },
+    desc: 'Rib pesado, sisas profundas y teñido carbón.',
+  },
+  {
+    id: 'ruin',
+    code: 'P05',
+    name: 'Jean Ruin',
+    type: 'jeans',
+    cls: 'All-Round',
+    price: 120,
+    stats: { def: 70, wgt: 80, stl: 88 },
+    desc: 'Denim 14 oz con lavado gris humo y botamanga ancha.',
+  },
+  {
+    id: 'null',
+    code: 'P06',
+    name: 'Borcego Null',
+    type: 'boots',
+    cls: 'Heavy',
+    price: 190,
+    stats: { def: 96, wgt: 95, stl: 66 },
+    desc: 'Suela track de 5 cm y caña alta con 10 ojales.',
+  },
+  {
+    id: 'cross',
+    code: 'P07',
+    name: 'Cadena Cruz',
+    type: 'chain',
+    cls: 'Support',
+    price: 55,
+    stats: { def: 8, wgt: 30, stl: 94 },
+    desc: 'Acero quirúrgico, cruz gótica de 6 cm.',
+  },
+  {
+    id: 'phantom',
+    code: 'P08',
+    name: 'Track Phantom',
+    type: 'track',
+    cls: 'Rogue',
+    price: 95,
+    stats: { def: 48, wgt: 40, stl: 84 },
+    desc: 'Pantalón de nylon con tres franjas hueso y puño elástico.',
+  },
+]
+
+export const FEATURED = {
+  code: 'DROP 03',
+  name: 'Shadow Protocol',
+  item: 'Bomber Shadow',
+  type: 'jacket',
+  price: 260,
+  stats: { def: 94, wgt: 88, stl: 97 },
+  desc: 'La pieza central del drop. Cuero envejecido, hombros caídos, capucha desmontable y bolsillo para tu memory card. 300 unidades. Sin reposición.',
+  // fecha ficticia del lanzamiento
+  release: '2026-11-13T03:14:00-03:00',
+}
+
+export const formatPrice = (n) => `$${n}`

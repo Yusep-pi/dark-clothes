@@ -1,0 +1,44 @@
+.trophy {
+  position: fixed;
+  top: 76px;
+  right: var(--gutter);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px 10px 10px;
+  max-width: calc(100vw - 32px);
+  background: linear-gradient(180deg, #3b3d44, #24252b);
+  border: 1px solid #5a5c66;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  font-family: var(--f-ui);
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trophy__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: #0b0b2a;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.trophy__icon .garment {
+  width: 80%;
+}
+
+.trophy__name {
+  color: var(--chrome);
+  font-size: 15px;
+}
+
+.trophy__cup {
+  filter: grayscale(1) brightness(1.4);
+  font-size: 13px;
+}

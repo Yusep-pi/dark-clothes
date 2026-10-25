@@ -1,0 +1,81 @@
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  cursor: pointer;
+}
+
+.boot__body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--gutter);
+}
+
+.boot__log {
+  font-size: clamp(12px, 1.6vw, 15px);
+  color: var(--lav);
+  text-shadow: 0 0 8px rgba(140, 140, 255, 0.6);
+  line-height: 1.9;
+}
+
+.boot__line:first-child {
+  color: var(--ice);
+  margin-bottom: 12px;
+}
+
+.boot__load {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--lav);
+  max-width: 520px;
+}
+
+.boot__bar {
+  flex: 1;
+  height: 6px;
+  border: 1px solid var(--lav-dim);
+  padding: 1px;
+}
+
+.boot__bar span {
+  display: block;
+  height: 100%;
+  background: var(--lav);
+  box-shadow: 0 0 12px var(--lav);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.boot__start {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(16px, 2.4vw, 22px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ice);
+  animation: blink 1.1s steps(2, start) infinite;
+  margin-bottom: 8vh;
+}
+
+.boot__flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

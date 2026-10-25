@@ -1,0 +1,26 @@
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px rgba(140, 180, 255, 0.9));
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(0.2) rotate(0deg);
+    opacity: 0;
+  }
+  45%,
+  55% {
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+    opacity: 0.8;
+  }
+}

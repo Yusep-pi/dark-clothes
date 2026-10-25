@@ -1,0 +1,219 @@
+.hero {
+  height: 100svh;
+  min-height: 560px;
+  position: relative;
+}
+
+.hero__inner {
+  position: absolute;
+  inset: 0;
+  padding: 96px var(--gutter) var(--gutter);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* ---- Panel superior con el control ---- */
+.hero__panel {
+  position: relative;
+  margin-left: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.hero__mark {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero__pad {
+  width: 120px;
+  color: var(--ice);
+  filter: drop-shadow(0 0 6px rgba(140, 140, 255, 0.7));
+}
+
+/* Líneas finas de la UI, se "dibujan" en la intro */
+.hero__line {
+  position: absolute;
+  display: block;
+  height: 1px;
+  background: var(--ice);
+  opacity: 0.7;
+  transform-origin: left;
+}
+
+.hero__line i {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ice);
+  box-shadow: 0 0 10px var(--lav);
+}
+
+.hero__line--top {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero__panel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(transparent, var(--ice));
+  opacity: 0.6;
+}
+
+/* ---- Logo ---- */
+.hero__logo {
+  align-self: center;
+  justify-self: end;
+  position: relative;
+  text-align: right;
+  padding-bottom: 18px;
+  perspective: 800px;
+}
+
+.hero__title {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(54px, 13vw, 220px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-shadow: 0 0 40px rgba(140, 140, 255, 0.35);
+}
+
+.hero__word {
+  display: block;
+  padding: 0 0.04em;
+}
+
+.hero__word--a {
+  font-weight: 500;
+  font-size: 0.55em;
+  letter-spacing: 0.2em;
+  color: var(--lav);
+}
+
+.hero__char {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+.is-glitch .hero__title {
+  text-shadow:
+    -6px 0 0 var(--red),
+    6px 0 0 #3dff8a,
+    0 0 40px rgba(140, 140, 255, 0.5);
+}
+
+.hero__sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__code {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--ice);
+  margin-top: 14px;
+}
+
+.hero__line--logo {
+  left: 30%;
+  right: 0;
+  bottom: 0;
+}
+
+/* ---- Barra inferior ---- */
+.hero__bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-top: 20px;
+}
+
+.hero__line--bottom {
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.hero__chips {
+  display: flex;
+}
+
+.hero__chip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 96px;
+  height: 84px;
+  padding: 10px 12px;
+  border: 1px solid var(--ice);
+}
+
+.hero__chip + .hero__chip {
+  border-left: 0;
+}
+
+.hero__chip b {
+  font-family: var(--f-ui);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1;
+}
+
+.hero__chip small {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+.hero__start {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero__start .pad-btn {
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__panel {
+    margin-left: 0;
+  }
+  .hero__logo {
+    justify-self: stretch;
+  }
+  .hero__start {
+    display: none;
+  }
+}

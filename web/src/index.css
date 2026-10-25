@@ -1,0 +1,230 @@
+/* ============================================================
+   DARK CLOTHES — estilos globales
+   Paleta: azul-violeta del arranque de PS2 + cromo/rojo del
+   "character select" de los juegos de pelea.
+   ============================================================ */
+
+:root {
+  --void: #05050f;
+  --deep: #0b0b2a;
+  --indigo: #1a1a5e;
+  --lav: #8c8cff;
+  --lav-dim: rgba(140, 140, 255, 0.28);
+  --ice: #e8eaff;
+  --chrome: #c9ced6;
+  --mute: #7d80a8;
+  --red: #e0142e;
+  --red-glow: rgba(224, 20, 46, 0.55);
+
+  --f-display: 'Orbitron', sans-serif;
+  --f-ui: 'Rajdhani', sans-serif;
+  --f-mono: 'Share Tech Mono', monospace;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html.is-locked,
+html.is-locked body {
+  overflow: hidden;
+}
+
+body {
+  background: var(--void);
+  color: var(--ice);
+  font-family: var(--f-ui);
+  font-size: 18px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Utilidades compartidas ---------- */
+
+.mono {
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--lav);
+  text-transform: uppercase;
+}
+
+/* Marco fino con puntitos en las esquinas, como la UI de PS2 */
+.frame {
+  position: relative;
+  border: 1px solid var(--lav-dim);
+}
+
+.frame::before,
+.frame::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ice);
+  box-shadow: 0 0 8px var(--lav);
+}
+
+.frame::before {
+  top: -3.5px;
+  left: -3.5px;
+}
+
+.frame::after {
+  bottom: -3.5px;
+  right: -3.5px;
+}
+
+/* Botón tipo "PRESS ✕" */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ice);
+  border: 1px solid var(--chrome);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.25s,
+    color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 28px var(--red-glow);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--lav);
+  outline-offset: 3px;
+}
+
+/* Ícono de botón de control (✕ ○ △ □) */
+.pad-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* ---------- Capa CRT: scanlines + grano + viñeta ---------- */
+
+.crt {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.crt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.crt::after {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  animation: grain 0.6s steps(4) infinite;
+}
+
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-6%, 4%); }
+  50% { transform: translate(5%, -7%); }
+  75% { transform: translate(-3%, -4%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Escena 3D fija detrás de todo */
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.scene canvas {
+  image-rendering: pixelated; /* baja resolución a propósito: look PS2 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt::after {
+    animation: none;
+  }
+}

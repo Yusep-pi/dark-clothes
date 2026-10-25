@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env*
+.vercel
+
+# fotos de referencia de Pinterest: son de terceros, no se publican
+referencias/

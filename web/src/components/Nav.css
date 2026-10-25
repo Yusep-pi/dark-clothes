@@ -1,0 +1,83 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px var(--gutter) 28px;
+  background: linear-gradient(180deg, rgba(5, 5, 15, 0.55), rgba(5, 5, 15, 0));
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav__logo {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+.nav__logo sub {
+  font-size: 10px;
+  color: var(--lav);
+  margin-left: 2px;
+}
+
+.nav__links {
+  display: flex;
+  gap: clamp(16px, 3vw, 40px);
+}
+
+.nav__links button {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav__links .mono {
+  font-size: 10px;
+  color: var(--lav);
+}
+
+.nav__links button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.nav__links button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav__cart {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+
+.nav__cart b {
+  display: inline-block;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+@media (max-width: 720px) {
+  .nav__links {
+    display: none;
+  }
+}
